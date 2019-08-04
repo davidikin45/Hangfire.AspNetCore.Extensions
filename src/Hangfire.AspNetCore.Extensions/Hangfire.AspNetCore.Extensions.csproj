@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>David Ikin</Authors>
+    <Company>David Ikin</Company>
+    <Copyright>(c) David Ikin</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/davidikin45/Hangfire.AspNetCore.Extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/davidikin45/Hangfire.AspNetCore.Extensions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Hangfire AspNetCore</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.5" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.5" />
+    <PackageReference Include="Hangfire.Initialization" Version="1.1.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
