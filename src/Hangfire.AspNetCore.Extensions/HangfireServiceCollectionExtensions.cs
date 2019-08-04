@@ -49,11 +49,17 @@ namespace Hangfire.AspNetCore.Extensions
             return services;
         }
 
+        /// <summary>
+        /// Adds the hangfire services to the application and starts hangfire server in memory.
+        /// </summary>
         public static IServiceCollection AddHangfireInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
         {
             return services.AddHangfire(serverName, "", configJobStorage, configAction, additionalProcesses);
         }
 
+        /// <summary>
+        /// Adds the hangfire services to the application and starts hangfire server in memory.
+        /// </summary>
         public static IServiceCollection AddHangfireSQLiteInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
         {
             return services.AddHangfire(serverName, "DataSource=:memory:;", configJobStorage, configAction, additionalProcesses);
