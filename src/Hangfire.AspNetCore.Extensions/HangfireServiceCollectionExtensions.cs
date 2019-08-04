@@ -49,6 +49,16 @@ namespace Hangfire.AspNetCore.Extensions
             return services;
         }
 
+        public static IServiceCollection AddHangfireInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
+        {
+            return services.AddHangfire(serverName, "", configJobStorage, configAction, additionalProcesses);
+        }
+
+        public static IServiceCollection AddHangfireSQLiteInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
+        {
+            return services.AddHangfire(serverName, "DataSource=:memory:;", configJobStorage, configAction, additionalProcesses);
+        }
+
         //IBackgroundJobClient and IRecurringJobManager will only work when storage setup via services.AddHangfire
         public static IServiceCollection AddHangfireServer(this IServiceCollection services, string serverName, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null, JobStorage storage = null)
         {

@@ -11,6 +11,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Hangfire AspNetCore</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
