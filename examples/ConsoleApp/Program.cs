@@ -18,11 +18,15 @@ namespace ConsoleApp
         //https://github.com/HangfireIO/Hangfire/blob/a07ad0b9926923db75747d92796c5a9db39c1a87/samples/NetCoreSample/Program.cs
         static async Task Main(string[] args)
         {
+            //vconstar string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Hangfire;Trusted_Connection=True;MultipleActiveResultSets=true;";
+            //const string connectionString = "Data Source=:hangfire.db;";
+            const string connectionString = "";
+
             var hostBuilder = new HostBuilder()
                 .ConfigureLogging(x => x.AddConsole().SetMinimumLevel(LogLevel.Information))
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHangfire("console", "", null, options => {
+                    services.AddHangfireServer("console", connectionString, null, options => {
                         var jobFilters = new JobFilterCollection();
                         jobFilters.Add(new CaptureCultureAttribute());
                         jobFilters.Add(new AutomaticRetryAttribute());

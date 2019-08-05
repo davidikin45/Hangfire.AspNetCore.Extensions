@@ -14,9 +14,9 @@ namespace Hangfire.AspNetCore.Extensions
     public static class HangfireServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds the hangfire services to the application.
+        /// Adds the hangfire services to the application. Calls AddHangfire + AddHangfireServer.
         /// </summary>
-        public static IServiceCollection AddHangfire(this IServiceCollection services, string serverName, string connectionString = "", Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
+        public static IServiceCollection AddHangfireServer(this IServiceCollection services, string serverName, string connectionString = "", Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
         {
             services.AddHangfire(config =>
             {
@@ -50,19 +50,19 @@ namespace Hangfire.AspNetCore.Extensions
         }
 
         /// <summary>
-        /// Adds the hangfire services to the application and starts hangfire server in memory.
+        /// Adds the hangfire services to the application and starts hangfire server in memory. Calls AddHangfire + AddHangfireServer.
         /// </summary>
-        public static IServiceCollection AddHangfireInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
+        public static IServiceCollection AddHangfireInMemoryServer(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
         {
-            return services.AddHangfire(serverName, "", configJobStorage, configAction, additionalProcesses);
+            return services.AddHangfireServer(serverName, "", configJobStorage, configAction, additionalProcesses);
         }
 
         /// <summary>
-        /// Adds the hangfire services to the application and starts hangfire server in memory.
+        /// Adds the hangfire services to the application and starts hangfire server in memory. Calls AddHangfire + AddHangfireServer.
         /// </summary>
-        public static IServiceCollection AddHangfireSQLiteInMemory(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
+        public static IServiceCollection AddHangfireSQLiteInMemoryServer(this IServiceCollection services, string serverName, Action<JobStorageOptions> configJobStorage = null, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null)
         {
-            return services.AddHangfire(serverName, "DataSource=:memory:;", configJobStorage, configAction, additionalProcesses);
+            return services.AddHangfireServer(serverName, "DataSource=:memory:;", configJobStorage, configAction, additionalProcesses);
         }
 
         //IBackgroundJobClient and IRecurringJobManager will only work when storage setup via services.AddHangfire
