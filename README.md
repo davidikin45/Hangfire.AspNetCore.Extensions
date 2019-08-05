@@ -2,6 +2,7 @@
 [![nuget](https://img.shields.io/nuget/v/Hangfire.AspNetCore.Extensions.svg)](https://www.nuget.org/packages/Hangfire.AspNetCore.Extensions/) ![Downloads](https://img.shields.io/nuget/dt/Hangfire.AspNetCore.Extensions.svg "Downloads")
 
 * Simple extensions method for adding Hangfire SqlServer, SQLite or MemoryStorage to .NET Core Console or Web Applications. Replaces the need for services.AddHangfire + services.AddHangfireServer. 
+* Adds a queue for each server. [Useful for Microservices](https://discuss.hangfire.io/t/one-queue-for-the-whole-farm-and-one-queue-by-server/490)
 
 ## Installation
 
