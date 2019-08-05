@@ -18,8 +18,9 @@ namespace ConsoleApp
         //https://github.com/HangfireIO/Hangfire/blob/a07ad0b9926923db75747d92796c5a9db39c1a87/samples/NetCoreSample/Program.cs
         static async Task Main(string[] args)
         {
-            //vconstar string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Hangfire;Trusted_Connection=True;MultipleActiveResultSets=true;";
+            //const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Hangfire;Trusted_Connection=True;MultipleActiveResultSets=true;";
             //const string connectionString = "Data Source=:hangfire.db;";
+            //const string connectionString = "Data Source=:memory:;";
             const string connectionString = "";
 
             var hostBuilder = new HostBuilder()
