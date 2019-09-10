@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore3", "AspNetCore3.csproj", "{99EBF240-89D0-4748-A581-322238346617}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.AspNetCore.Extensions", "..\..\src\Hangfire.AspNetCore.Extensions\Hangfire.AspNetCore.Extensions.csproj", "{43192101-5CD0-4647-970C-F002DDB7EAD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99EBF240-89D0-4748-A581-322238346617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EBF240-89D0-4748-A581-322238346617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EBF240-89D0-4748-A581-322238346617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EBF240-89D0-4748-A581-322238346617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43192101-5CD0-4647-970C-F002DDB7EAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43192101-5CD0-4647-970C-F002DDB7EAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43192101-5CD0-4647-970C-F002DDB7EAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43192101-5CD0-4647-970C-F002DDB7EAD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09D812F1-B68D-45E5-905B-E167CAA55477}
+	EndGlobalSection
+EndGlobal
