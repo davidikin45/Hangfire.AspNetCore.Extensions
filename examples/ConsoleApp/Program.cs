@@ -15,8 +15,16 @@ namespace ConsoleApp
 {
     class Program
     {
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+           Host.CreateDefaultBuilder(args)
+               .ConfigureServices((hostContext, services) =>
+               {
+                   services.AddHostedService<Worker>();
+               });
+
         //https://github.com/HangfireIO/Hangfire/blob/a07ad0b9926923db75747d92796c5a9db39c1a87/samples/NetCoreSample/Program.cs
-        static async Task Main(string[] args)
+        static Task Main(string[] args)
         {
             //const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Hangfire;Trusted_Connection=True;MultipleActiveResultSets=true;";
             //const string connectionString = "Data Source=:hangfire.db;";
@@ -43,7 +51,7 @@ namespace ConsoleApp
                     services.AddHostedService<RecurringJobsService>();
                 });
 
-            await hostBuilder.RunConsoleAsync();
+            return hostBuilder.RunConsoleAsync();
         }
 
         internal class RecurringJobsService : BackgroundService
