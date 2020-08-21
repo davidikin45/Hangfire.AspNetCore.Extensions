@@ -68,6 +68,13 @@ namespace Hangfire.AspNetCore.Extensions
         //IBackgroundJobClient and IRecurringJobManager will only work when storage setup via services.AddHangfire
         public static IServiceCollection AddHangfireServer(this IServiceCollection services, string serverName, Action<BackgroundJobServerOptions> configAction = null, IEnumerable<IBackgroundProcess> additionalProcesses = null, JobStorage storage = null)
         {
+            var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(IHostedService) && d.ImplementationType == typeof(BackgroundJobServerHostedService));
+
+            if (descriptor != null)
+            {
+                services.Remove(descriptor);
+            }
+
             return services.AddTransient<IHostedService, BackgroundJobServerHostedService>(provider =>
             {
                 ThrowIfNotConfigured(provider);
