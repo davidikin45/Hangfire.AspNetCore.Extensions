@@ -1,4 +1,5 @@
-﻿using Hangfire.Client;
+﻿using Database.Initialization;
+using Hangfire.Client;
 using Hangfire.Common;
 using Hangfire.Initialization;
 using Hangfire.Server;
@@ -31,6 +32,17 @@ namespace Hangfire.AspNetCore.Extensions
                 if (connectionString != null)
                 {
                     //Initializes Hangfire Schema if PrepareSchemaIfNecessary = true
+
+                    //When using SQLite InMemory InitializeSchema right away regardless!
+                    if (!string.IsNullOrEmpty(connectionString) && ConnectionStringHelper.IsSQLiteInMemory(connectionString) && configJobStorage != null)
+                    {
+                        configJobStorage = (options) =>
+                        {
+                            configJobStorage(options);
+                            options.PrepareSchemaIfNecessary = true;
+                        };
+                    }
+
                     var storage = HangfireJobStorage.GetJobStorage(connectionString, configJobStorage).JobStorage;
 
                     config.UseStorage(storage);
